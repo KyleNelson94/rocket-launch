@@ -22,6 +22,10 @@ const HomePage = () => {
       setLaunches(data);
       toast("We got it.");
     }
+
+    if (error) {
+      toast("Something went wrong!")
+    }
   }, []);
 
   if (loading) return <Loader />;
@@ -30,7 +34,6 @@ const HomePage = () => {
     <div>
       { 
         launches.length > 0 && launches.map((launch: any) => {
-          console.log("Launch --------------------->", launch);
           const name = launch.name ? launch.name : "No title";
           return <BaseCard title={name} content={launch.details} />;
         })
