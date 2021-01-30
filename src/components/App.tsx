@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 
+import Header from './header';
+import styled from 'styled-components';
+import Container from './layout/index';
 import { toast } from 'react-toastify';
 import Router from './navigation/Router';
 
@@ -10,10 +13,40 @@ function App() {
     toast("Routing is working.");
   }, []);
 
+  const AppContainer = styled.div`
+    #menu_check {
+      display: none;
+
+      &:checked {
+        ~ header div label span {
+          background: ${props => props.theme.color.primary};
+
+          &::before {
+            transform: rotate(145deg);
+            top: auto;
+          }
+          &::after {
+            transform: rotate(-145deg);
+            bottom: auto;
+          }
+        }
+
+        ~ .nav-sm {
+          transform: translateY(0);
+          z-index: 1;
+        }
+      }
+    }
+  `;
+
   return (
-    <div className="App">
-      <Router />
-    </div>
+    <AppContainer className="App">
+      <input type="checkbox" name="menu_check" id="menu_check" />
+      <Header />
+      <Container>
+        <Router />
+      </Container>
+    </AppContainer>
   );
 }
 

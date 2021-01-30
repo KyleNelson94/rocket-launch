@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import { toast } from 'react-toastify';
 import useAxios from 'axios-hooks';
 
-import Loader from '../components/loader/Loader';
-import BaseCard from '../components/card/BaseCard';
+import Loader from '@components/loader/Loader';
 
 const HomePage = () => {
-  const [launches, setLaunches] = useState([]);
+  const [launches, setLaunches] = React.useState([]);
   const [{ data, loading, error }] = useAxios(
     'https://api.spacexdata.com/v4/launches'
   );
 
-  useEffect(() => {
+  React.useEffect(() => {
 
     if(loading) {
       toast("We are loading the Data...");
@@ -32,12 +31,8 @@ const HomePage = () => {
 
   return (
     <div>
-      { 
-        launches.length > 0 && launches.map((launch: any) => {
-          const name = launch.name ? launch.name : "No title";
-          return <BaseCard title={name} content={launch.details} />;
-        })
-      }
+      <h1>Hello</h1>
+      
     </div>
   )
 }

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Card, Elevation } from "@blueprintjs/core";
+import * as React from 'react';
 
 interface Props {
   title: string,
@@ -9,9 +8,7 @@ interface Props {
 const BaseCard = ({title, content}:Props) => {
 
   return (
-    <Card elevation={Elevation.TWO} interactive>
-      <h4>{title}</h4>
-    </Card>
+    <div></div>
   );
 }
 

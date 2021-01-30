@@ -12,15 +12,15 @@ function Router() {
 
   return (
     <BrowserRouter>
-        <Switch>
-          <Route path="/" exact>
-            <HomePage />
-          </Route>
-          <Route path="/launches">
-            <LaunchesPage />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      <Switch>
+        <Route path="/" exact>
+          <HomePage />
+        </Route>
+        <Route path="/launches">
+          <LaunchesPage />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
