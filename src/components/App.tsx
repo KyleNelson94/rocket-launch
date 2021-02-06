@@ -1,17 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import Header from './header';
 import styled from 'styled-components';
 import Container from './layout/index';
-import { toast } from 'react-toastify';
 import Router from './navigation/Router';
 
 function App() {
-
-  useEffect(() => {
-
-    toast("Routing is working.");
-  }, []);
 
   const AppContainer = styled.div`
     #menu_check {

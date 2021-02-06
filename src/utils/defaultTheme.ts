@@ -4,6 +4,6 @@ export default {
     secondary: "#FFFFFF"
   },
   dimension: {
-    maxWidth: 1000
+    maxWidth: 1280
   }
 }
