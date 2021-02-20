@@ -7,18 +7,21 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
+const db = require('./database/index');
+
 const indexRouter = require('./routes/index');
-const userRouter = require('./routes/user.routes');
+const userRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
 
 const app = express();
 
 mongoose.Promise = global.Promise;
 //mongoose.connect('mongodb+srv://kylenelson:50nl4Jszxvvca53Z@launches.0bygc.mongodb.net/<dbname>?retryWrites=true&w=majority');
-mongoose.connect('mongodb+srv://kylenelson:50nl4Jszxvvca53Z@launches.0bygc.mongodb.net/launches?retryWrites=true&w=majority', {
-  useNewUrlParser: true
+mongoose.connect('', {
+  
 });
 
+console.log("Connection established ------------------>", mongoose.connection);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,6 +35,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+console.log("db colllections ------------------->", db.collections);
 
 app.use('/', indexRouter);
 app.use('/users', userRouter);
